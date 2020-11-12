@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react"
+import Unity, { UnityContent } from "react-unity-webgl"
 
-function App() {
+const App = () => {
+  const [loaded, setLoaded] = useState(false);
+  const [show, setShow] = useState(false);
+  const unityContent  = new UnityContent(
+    "unity/Build/Build.json",
+    "unity/Build/UnityLoader.js"
+  )
+  unityContent.on('loaded', () => {
+    setLoaded(true)
+  })
+
+  useEffect(()=>{
+    if(loaded){
+      setTimeout(()=>{
+        setShow(true)
+      }, 2000)
+    }
+  },[loaded])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      { !show && <div className="loading">Loading...</div>}
+      <Unity className={`haine ${ !show ? 'hidden' : '' }`} unityContent={unityContent} />
+    </>
+  )
 }
 
 export default App;
