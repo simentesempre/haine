@@ -3,6 +3,7 @@ import Unity, { UnityContent } from "react-unity-webgl"
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [show, setShow] = useState(false);
   const unityContent  = new UnityContent(
     "unity/Build/Build.json",
@@ -10,6 +11,9 @@ const App = () => {
   )
   unityContent.on('loaded', () => {
     setLoaded(true)
+  })
+  unityContent.on('progress', progression => {
+    setProgress(progression)
   })
 
   useEffect(()=>{
@@ -22,7 +26,7 @@ const App = () => {
 
   return (
     <>
-      { !show && <div className="loading">Loading...</div>}
+      { !show && <div className="loading">{`Loading ${Math.round(progress * 100)}%`}</div>}
       <Unity className={`haine ${ !show ? 'hidden' : '' }`} unityContent={unityContent} />
     </>
   )
