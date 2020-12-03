@@ -4,9 +4,13 @@ import unityContent from "./unity"
 import Over from "./components/Over"
 
 const App = () => {
-  const [loaded, setLoaded] = useState(false);
+  const location = window.location;
+  console.log(location)
+  const urlParams = new URLSearchParams(location.search) 
+  console.log(urlParams.has('e'), urlParams.get('e'))
+  const [loaded, setLoaded] = useState( ( urlParams.has('e') && urlParams.get('e') ) === 'OsxMerda' ? true : false);
   const [progress, setProgress] = useState(0);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState( ( urlParams.has('e') && urlParams.get('e') ) === 'OsxMerda' ? true : false);
   const [showRestart, setShowRestart] = useState(false);
   const [score, setScore] = useState(false);
   

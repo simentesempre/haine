@@ -50,6 +50,7 @@ button {
   box-shadow: 15px 0 50px 15px#0EFADC;
 }
 .haine canvas{
+  background-color: #000100!important;
   top: 0;
   left: 0;
   bottom: 0;
