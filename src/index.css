@@ -5,23 +5,70 @@ body {
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
   text-align: center;
+  font-size: 18px;
+}
+button {
+  font-size: 18px;
+}
+#root {
+  position: relative;
 }
 .haine{
   background-color: #000100!important;
   height:56.25vw!important;
   width:100vw!important;
-  max-width: 1440px;
-  max-height: 810px;
-  margin: 0 auto!important;
-  position: static;
+  max-width: 1280px;
+  max-height: 720px;
+  margin: 50px auto 0 auto!important;
+  position: relative;
 }
 .haine.hidden {
   position: absolute;
   left: -9999px;
+}
+.haine:after, .haine:before{
+  position: absolute;
+  top:0;
+  bottom:0;
+  z-index: 1;
+  content: " ";
+}
+.haine:after{
+  right:50%;
+  left:15px;
+  box-shadow: -15px 0 50px 15px #F800B9;
+}
+.haine:before{
+  right:15px;
+  left:50%;
+  box-shadow: 15px 0 50px 15px#0EFADC;
+}
+.haine canvas{
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 2;
 }
 .loading {
   position: absolute;
   top:50%;
   left:50%;
   transform: translate(-50%);
+}
+.over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000;
+  color: #fff;
+  padding: 50px;
+  z-index: 2;
+  min-height: 400px;
+  min-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
