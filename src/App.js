@@ -5,9 +5,7 @@ import Over from "./components/Over"
 
 const App = () => {
   const location = window.location;
-  console.log(location)
   const urlParams = new URLSearchParams(location.search) 
-  console.log(urlParams.has('e'), urlParams.get('e'))
   const [loaded, setLoaded] = useState( ( urlParams.has('e') && urlParams.get('e') ) === 'OsxMerda' ? true : false);
   const [progress, setProgress] = useState(0);
   const [show, setShow] = useState( ( urlParams.has('e') && urlParams.get('e') ) === 'OsxMerda' ? true : false);
@@ -35,7 +33,6 @@ const App = () => {
   },[loaded])
 
   useEffect(()=>{
-    console.log({score, progress, loaded})
   },[score, progress, loaded])
 
   return (
