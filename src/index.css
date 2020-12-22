@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 * {
   box-sizing: border-box;
 }
@@ -78,4 +79,43 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.landing {
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.landing p {
+  padding: 10px;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.landing label {
+  font-size: 0.8rem;
+  display: block;
+}
+.landing input {
+  font-family: 'Open Sans', sans-serif;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  padding: 5px;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+}
+.landing button {
+  font-family: 'Open Sans', sans-serif;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  padding: 5px;
+  display: block;
+  margin: 0 auto;
+  font-size: 0.8rem;
 }
