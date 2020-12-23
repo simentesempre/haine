@@ -10,6 +10,7 @@ body {
   font-family: 'Roboto', sans-serif;
   text-align: center;
   font-size: 18px;
+  overflow-x: hidden;
 }
 button {
   font-size: 18px;
@@ -87,12 +88,18 @@ button {
   max-width: 600px;
   margin: 0 auto;
 }
+.landing a{
+  color: white;
+}
 .landing p {
   padding: 10px;
 }
 
 .text-uppercase {
   text-transform: uppercase;
+}
+small {
+  font-size: 0.8rem;
 }
 
 .landing label {
@@ -116,6 +123,12 @@ button {
   color: white;
   padding: 5px;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
   font-size: 0.8rem;
+}
+.landing .logo img {
+  max-width: 100%;
+}
+.landing iframe {
+  width: 100%;
 }
