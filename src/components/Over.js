@@ -1,24 +1,45 @@
 import React from 'react'
 import {
-    FacebookShareButton,
+    FacebookShareButton, 
+    TwitterShareButton
   } from "react-share"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 
 const Over = ({ score, unityContent, setShowRestart}) => {
-    const handleRestart = () => {
+    const unitySend = (level) => {
         unityContent.send(
-          "Manager", 
-          "LoadLevel", 
-          1
+            "Manager", 
+            "LoadLevel", 
+            level
         )
+    }
+    const handleRestart = () => {
+        unitySend(1)
+        setShowRestart(false)
+    }
+    const handleGoToHomepage = () => {
+        unitySend(0)
         setShowRestart(false)
     }
     return (
     <div className="over">
-        <p>Hai resistito { score } secondi</p>
-        <p><button onClick={handleRestart}>Gioca ancora</button></p>
-        <FacebookShareButton url={window.location.href} quote={`Io ho resistito ${score} secondi. Riuscirai a battermi?`}>
-            Condividi su Facebook
-        </FacebookShareButton>
+        You survived
+        <h2> {score} seconds</h2>
+        to this shitty year
+        <div class="actions">
+            <button onClick={handleRestart}>Restart</button>
+            <button onClick={handleGoToHomepage}>Home</button>
+        </div>
+        <div class="share">
+            <span>Share on</span>
+            <FacebookShareButton url={window.location.href} quote={`I survived ${score} seconds to this shitty year. Can you beat me?`}>
+                <FontAwesomeIcon icon={faFacebook} />
+            </FacebookShareButton>
+            <TwitterShareButton url={window.location.href} title={`I survived ${score} seconds to this shitty year. Can you beat me?`}>
+                <FontAwesomeIcon icon={faTwitter} />
+            </TwitterShareButton>
+        </div>     
     </div>
     )
 }

@@ -5,11 +5,18 @@ import Landing from './Landing'
 
 import './index.css'
 
-const render = () => {
-  return process.env.REACT_APP_STATUS === 'landing' ? <Landing /> : <App />
+const render = (status) => {
+  switch(status){
+    case 'app':
+      return <App />
+    case 'landing':
+      return <Landing />
+    default:
+      return <App />
+  }
 }
 
 ReactDOM.render(
-  render(),
+  render(process.env.REACT_APP_STATUS),
   document.getElementById('root')
 )

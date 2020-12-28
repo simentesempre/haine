@@ -7,7 +7,7 @@ body {
   margin: 0;
   background-color: #000100;
   color: #ffffff;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open sans', sans-serif;
   text-align: center;
   font-size: 18px;
   overflow-x: hidden;
@@ -20,6 +20,37 @@ button {
   height: 100vh;
   width: 100vw;
   padding-top: 50px;
+}
+.loading {
+  border: 3px solid white;
+  height: 20px;
+  width: 400px;
+  position: relative;
+  text-align: left;
+}
+.loading span {
+  display: inline-block;
+  position: absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  top:0;
+  width: 0%;
+  background: rgb(14,250,220);
+  background: linear-gradient(90deg, rgba(14,250,220,1) 0%, rgba(248,0,185,1) 100%);
+}
+.coming-soon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.coming-soon p{
+  padding: 40px;
 }
 .haine{
   background-color: #000100!important;
@@ -80,6 +111,34 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px 5px rgba(255,255,255,.1);
+}
+.over h2 {
+  margin: 10px 0;
+}
+.over .actions, .over .share {
+  margin: 20px 0 10px 0;
+}
+.over .actions button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  margin: 0 5px;
+  padding: 15px;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.over .actions button:hover {
+  background: white;
+  color: #000000;
+}
+.over .share button {
+  margin: 0 5px;
+  font-size: 24px;
 }
 .landing {
   font-family: 'Open Sans', sans-serif;
