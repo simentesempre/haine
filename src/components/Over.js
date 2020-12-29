@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactTooltip from 'react-tooltip'
 import {
     FacebookShareButton, 
     TwitterShareButton
@@ -35,8 +36,8 @@ const Over = ({ score, unityContent, setShowRestart, awards}) => {
                         const award = awards[key]
                         const image = require(`../assets/images/${award.icon}`)
                         return (
-                            <li className={`${ award.taken ? 'show': ''}`}>
-                                <img src={image.default} alt={key} />
+                            <li data-tip={award.taken ? award.label : null} className={`${ award.taken ? 'show': ''}`}>
+                                <img src={image.default} alt={award.label} />
                             </li>
                         )
                     })
@@ -55,7 +56,8 @@ const Over = ({ score, unityContent, setShowRestart, awards}) => {
             <TwitterShareButton url={window.location.href} title={`I survived ${score} seconds to this shitty year. Can you beat me?`}>
                 <FontAwesomeIcon icon={faTwitter} />
             </TwitterShareButton>
-        </div>     
+        </div>
+        <ReactTooltip />    
     </div>
     )
 }

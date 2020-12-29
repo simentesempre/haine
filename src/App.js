@@ -7,22 +7,27 @@ import { isMobile } from "react-device-detect"
 
 const awardsObject = {
   black: {
+    label: 'The Black Lives Matter movement',
     icon: 'gettone_black.png',
     taken: false
   },
   bsk: {
+    label: 'The death of Kobe',
     icon: 'gettone_bsk.png',
     taken: true
   },
   koala: {
+    label: 'The Australian bushfire season',
     icon: 'gettone_koala.png',
     taken: true
   },
   maradona: {
+    label: 'The death of Diego',
     icon: 'gettone_maradona.png',
     taken: false
   },
   virus: {
+    label: 'The sars-cov-2 pandemic',
     icon: 'gettone_virus.png',
     taken: false
   }
