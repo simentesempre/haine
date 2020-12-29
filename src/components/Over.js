@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 
-const Over = ({ score, unityContent, setShowRestart}) => {
+const Over = ({ score, unityContent, setShowRestart, awards}) => {
     const unitySend = (level) => {
         unityContent.send(
             "Manager", 
@@ -27,6 +27,22 @@ const Over = ({ score, unityContent, setShowRestart}) => {
         You survived
         <h2> {score} seconds</h2>
         to this shitty year
+        <div className="awards">
+            You re-experienced
+            <ul>
+                {
+                    Object.keys(awards).map( key => {
+                        const award = awards[key]
+                        const image = require(`../assets/images/${award.icon}`)
+                        return (
+                            <li className={`${ award.taken ? 'show': ''}`}>
+                                <img src={image.default} alt={key} />
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+        </div>
         <div class="actions">
             <button onClick={handleRestart}>Restart</button>
             <button onClick={handleGoToHomepage}>Home</button>

@@ -5,6 +5,29 @@ import Over from "./components/Over"
 import Landing from "./components/Landing"
 import { isMobile } from "react-device-detect"
 
+const awardsObject = {
+  black: {
+    icon: 'gettone_black.png',
+    taken: false
+  },
+  bsk: {
+    icon: 'gettone_bsk.png',
+    taken: true
+  },
+  koala: {
+    icon: 'gettone_koala.png',
+    taken: true
+  },
+  maradona: {
+    icon: 'gettone_maradona.png',
+    taken: false
+  },
+  virus: {
+    icon: 'gettone_virus.png',
+    taken: false
+  }
+}
+
 const App = () => {
   const location = window.location;
   const urlParams = new URLSearchParams(location.search) 
@@ -13,6 +36,7 @@ const App = () => {
   const [show, setShow] = useState( ( urlParams.has('e') && urlParams.get('e') ) === 'OsxMerda' ? true : false);
   const [showRestart, setShowRestart] = useState(false);
   const [score, setScore] = useState(false);
+  const [awards, setAwards] = useState(awardsObject);
   
   unityContent.on('loaded', () => {
     setLoaded(true)
@@ -42,7 +66,7 @@ const App = () => {
           </> : <div className="unity-container">
           { !show && <div className="loading"><span style={{width: `${Math.round(progress * 100)}%`}}></span></div>}
           <Unity className={`haine ${ !show ? 'hidden' : '' }`} unityContent={unityContent} />
-          {showRestart && <Over score={score} unityContent={unityContent} setShowRestart={setShowRestart}/>}
+          {showRestart && <Over score={score} unityContent={unityContent} setShowRestart={setShowRestart} awards={awards} />}
         </div>
       }
       
