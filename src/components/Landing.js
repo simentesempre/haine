@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import YouTube from 'react-youtube'
 import axios from 'axios'
-import Logo from './assets/images/logo.png'
+import Logo from '../assets/images/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
-const Landing = () => {
+const Landing = ({ mobile = false }) => {
 
   const youtubeOpts = {
     width: '100%',
@@ -39,28 +39,39 @@ const Landing = () => {
 
   return (
     <div className="landing">
-      <YouTube
-        videoId="oLHqWhilXps"
-        opts={youtubeOpts}
-      />
+      <div className="video-container">
+        <YouTube
+          videoId="oLHqWhilXps"
+          opts={youtubeOpts}
+        />
+      </div>
       <div className="logo">
         <img src={Logo} alt="L'Année" />
       </div>
-      <p>
-        L’Année is a videogame homage to the 1995 movie "La Haine".<br />
-        It's a last goodbye to this shitty year.<br /> 
-        It's the saddest game of the saddest year. <br />
-        But most of all...<br />
-        IT'S A JOKE.
-      </p>
+      {
+        mobile ? <p>
+        Try "L’Année" on your Pc or Mac.<br />
+        Soon available on Play Store and App Store.
+      </p> : <>
+        <p>
+          "L’Année" is a videogame homage to the 1995 movie "La Haine".<br />
+          It's a last goodbye to this shitty year.<br /> 
+          It's the saddest game of the saddest year. <br />
+          But most of all...<br />
+          IT'S A JOKE.
+        </p>
+        <p>
+          <strong className="text-uppercase">
+            Available on 31.12.2020
+          </strong>
+        </p>
+      </>
+      }
       <p>
         <strong className="text-uppercase">
-          Available on 31.12.2020
-        </strong>
-      </p>
-      <p>
-        <strong className="text-uppercase">
-          <a target="_blank" rel="noreferrer" href="https://www.instagram.com/itsajokegames/">FOLLOW US ON <FontAwesomeIcon icon={faInstagram} /></a>
+          FOLLOW US ON<br />
+          <a target="_blank" rel="noreferrer" href="https://www.instagram.com/itsajokegames/"><FontAwesomeIcon icon={faInstagram} /></a>&nbsp;&nbsp;&nbsp;
+          <a target="_blank" rel="noreferrer" href="https://www.twitter.com/itsajokegames/"><FontAwesomeIcon icon={faTwitter} /></a>
         </strong>
       </p>
       {subscriptionMessage ? <p>
