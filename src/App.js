@@ -27,7 +27,7 @@ const awardsObject = {
     taken: false
   },
   virus: {
-    label: 'The sars-cov-2 pandemic',
+    label: 'The sars-cov-2 lockdown',
     icon: 'gettone_virus.png',
     taken: false
   }
@@ -50,6 +50,12 @@ const App = () => {
     console.log('OnPlayerDeath', {payload})
     setShowRestart(true)
     setScore(payload)
+    const awardsCollected = [true, true, true, false, true]
+    const awardsUpdated = { ...awardsObject }
+    Object.keys(awardsObject).forEach( (key, i) => {
+      awardsUpdated[key].taken =  awardsCollected[i]
+    })
+    setAwards(awardsUpdated)
   })
   unityContent.on('progress', progression => {
     setProgress(progression)
